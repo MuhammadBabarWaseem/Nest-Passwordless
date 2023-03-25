@@ -16,7 +16,7 @@ export class MagicLoginStrategy extends PassportStrategy(Strategy) {
                 expiresIn: '5m',
             },
             callbackUrl : 'http://localhost:3000/auth/login/callback',
-            sendMagicLink: (destination, href) => {
+            sendMagicLink: async (destination, href) => {
                 // Todo: Send Email
                 this.logger.debug(`Sending Email  to ${destination} with link ${href}`);
             },

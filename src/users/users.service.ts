@@ -9,12 +9,12 @@ export class UsersService {
         {
             id: 1,
             name : 'mambo',
-            email : 'mambo@gmail.com',
+            email : 'mambo@email.com',
         },
         {
             id: 2,
             name : 'bambo',
-            email : 'bambo@gmail.com',
+            email : 'bambo@email.com',
         },
     ];
 
