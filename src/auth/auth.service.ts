@@ -2,6 +2,7 @@ import { UsersService } from './../users/users.service';
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable prettier/prettier */
 import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { User } from 'src/users/user.entity';
 
 @Injectable()
 export class AuthService {

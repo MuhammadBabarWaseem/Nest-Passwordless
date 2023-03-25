@@ -1,9 +1,10 @@
-import { PasswordLogicDto } from './passwordless-login.dto';
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Res, Req, Body, ValidationPipe } from '@nestjs/common';
+import { PasswordLogicDto } from './passwordless-login.dto';
+import { Controller, Get, Post, Res, Req, Body, ValidationPipe, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { MagicLoginStrategy } from './magicLogin.strategy';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
@@ -15,9 +16,13 @@ export class AuthController {
     return this.strategy.send(req, res);
   }
 
+  @UseGuards(AuthGuard('magiclogin'))
   @Get('login/callback')
-  callback(){
+  callback(@Req() req){
+    return req.user;
     
   }
 
 }
+
+
